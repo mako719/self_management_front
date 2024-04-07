@@ -60,8 +60,9 @@ return [
     */
 
     'providers' => [
+        // 独自認証ドライバの指定
         'users' => [
-            'driver' => 'eloquent',
+            'driver' => 'cache_eloquent',
             'model' => App\Models\User::class,
         ],
 
