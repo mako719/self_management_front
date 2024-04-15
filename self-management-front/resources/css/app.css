@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.not-registered {
+    margin-right: 10px;
+}
+
+.guest.title {
+    text-align: center;
+}
