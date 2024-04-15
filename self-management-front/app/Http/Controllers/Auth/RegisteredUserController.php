@@ -44,7 +44,6 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        dd(UserStatus::RegularMember->value);
         DB::beginTransaction();
         try {
             $user = User::create([
