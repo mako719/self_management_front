@@ -10,7 +10,7 @@ enum OAuth: int
     /**
      * @return string
      */
-    public function description(): string
+    public function label(): string
     {
         return match ($this) {
             self::AppAuth => '通常会員',

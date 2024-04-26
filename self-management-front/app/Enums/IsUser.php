@@ -10,7 +10,7 @@ enum IsUser: int
     /**
      * @return string
      */
-    public function description(): string
+    public function label(): string
     {
         return match ($this) {
             self::NonUser => 'ユーザー以外',

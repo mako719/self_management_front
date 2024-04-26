@@ -10,7 +10,7 @@ enum UserStatus: int
     /**
      * @return string
      */
-    public function description(): string
+    public function label(): string
     {
         return match ($this) {
             self::ProvisionalMember => '仮会員',
