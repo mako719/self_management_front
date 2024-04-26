@@ -3,9 +3,49 @@
 @tailwind utilities;
 
 .not-registered {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .guest.title {
-    text-align: center;
+  text-align: center;
+}
+
+.head-line {
+  display: flex;
+}
+
+.header-font-color {
+  color: rgb(0, 128, 255);
+}
+
+body{
+  overflow-x: hidden;
+}
+
+.header-area{
+  display: flex;
+  justify-content: space-between;
+  height: 65px;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.slide-menu{
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 65px;
+  width: 100%;
+  left: 0;
+  transform: translateX(100%);
+  transition: .5s;
+}
+
+.slide-menu li{
+  color: #fff;
+  line-height: 400%;
+  text-align: center;
+}
+
+.slide-menu.active{
+  transform: translateX(0);
 }
