@@ -187,4 +187,8 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ])->toArray(),
 
+    'api_url' => env('API_URL'),
+
+    'api_secret_key' => env('API_SECRET_KEY'),
+
 ];
