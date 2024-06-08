@@ -30,7 +30,8 @@ class CalendarController extends Controller
         list($calendarDays, $previousMonth, $nextMonth, $thisMonth) = $this->calendarService->calendarComponents($recordDate);
 
         $calendarContents = $this->calendarService->getcalendarContents($recordDate);
+        dd($calendarContents);
 
-        return view('calendar',compact('calendarDays','previousMonth', 'nextMonth', 'thisMonth'));
+        return view('calendar',compact('calendarDays','previousMonth', 'nextMonth', 'thisMonth', 'calendarContents'));
     }
 }

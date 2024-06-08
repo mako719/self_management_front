@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Traits\Calendar;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class CalendarService
@@ -33,21 +34,30 @@ class CalendarService
         $apiUrl = config('app.api_url');
         $secretKey = config('app.api_secret_key');
         $userId = Auth()->id();
-        $response = $client->request(
-            'GET',
-            "{$apiUrl}daily-report/{$recordDate}",
-            [
-                'headers' =>
-                [
-                    'Authorization' => "Bearer {$secretKey}",
-                    'personal_id' => $userId,
-                ],
-                'debug' => false,
-            ]
-        );
+        // $response = $client->request(
+        //     'GET',
+        //     "{$apiUrl}daily-report/{$recordDate}",
+        //     [
+        //         'headers' =>
+        //         [
+        //             'Authorization' => "Bearer {$secretKey}",
+        //             'personal_id' => $userId,
+        //         ],
+        //         'debug' => false,
+        //     ]
+        // );
+        $response = Http::withHeaders([
+                'personal_id' => $userId,
+        ])
+        ->withToken($secretKey)
+		->acceptJson()
+		->get("{$apiUrl}daily-report/{$recordDate}")
+		->json();
+        
+        dd($response);
 
-        $responseBody = $response->getBody()->getContents();
+        // $responseBody = $response->getBody();
 
-        return json_decode($responseBody);
+        return json_decode($response);
     }
 }
